@@ -2,6 +2,7 @@
 #! /usr/bin/env python3
 
 from flask import *
+from flask.ext.script import Manager
 
 app = Flask(__name__)
 
@@ -21,5 +22,6 @@ def user(name):
 def noname():
     return '<h1> Sorry</h1>', 400
 
+manager = Manager(app)
 if __name__ == '__main__':
-    app.run()
+    manager.run()
