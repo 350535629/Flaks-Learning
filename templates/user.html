@@ -17,6 +17,16 @@
         <li><a href="/">Home</a></li>
       </ul>
     </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/user/worker">Worker</a></li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/user/manager">Manager</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -25,10 +35,12 @@
 <div class="container">
   <div class="page-header">
 		<h1>
-      {% if name == "i" %}
+      {% if name != "ice2" %}
         Hello, {{ name }}!!
-      {% else %}
+      {% elif name == "ice2" %}
         Hello, Stranger!
+      {% else %}
+        Hello
       {% endif %}
     </h1>
   </div>
