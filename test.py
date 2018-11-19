@@ -2,21 +2,21 @@
 #! /usr/bin/env python3
 
 from flask import *
-from flask.ext.script import Manager
+from flask_script import Manager
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    user_agent = request.headers.get('User-Agent')
-    return '<h1> Hello, %s!!</h1>' % user_agent
+    return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
     if name == 'ice':
         abort(404)
-    return '<h1> Hello, user %s!</h1>' % name
+    return render_template('user.html', name=name)
 
 @app.route('/user/noname')
 def noname():
