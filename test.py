@@ -22,6 +22,9 @@ def user(name):
 def noname():
     return '<h1> Sorry</h1>', 400
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 manager = Manager(app)
 if __name__ == '__main__':
     manager.run()

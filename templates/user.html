@@ -1,48 +1,17 @@
-{% extends "bootstrap/base.html" %}
-{% block title %}Flask{% endblock %}
-{% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle"
-        data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Flask</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-      </ul>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/user/worker">Worker</a></li>
-      </ul>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/user/manager">Manager</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-{% endblock %}
+{% extends "base.html" %}
 
-{% block content %}
-<div class="container">
-  <div class="page-header">
-		<h1>
-      {% if name != "ice2" %}
-        Hello, {{ name }}!!
-      {% elif name == "ice2" %}
-        Hello, Stranger!
-      {% else %}
-        Hello
-      {% endif %}
-    </h1>
-  </div>
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div calss="page-header">
+  <h1>
+    {% if name != "ice1" %}
+    Hello, {{ name }}!!
+    {% elif name == "ice2" %}
+    Hello, Stranger!
+    {% else %}
+    Hello
+    {% endif %}
+  </h1>
 </div>
 {% endblock %}
