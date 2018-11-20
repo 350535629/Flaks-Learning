@@ -4,13 +4,25 @@
 from flask import *
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'I am Ice'
 bootstrap = Bootstrap(app)
 
-@app.route('/')
+class NameForm(Form):
+    name = StringField('What is your name?', validators=[Required()])
+    submit = SubmitField('Submit')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    name = None
+    form = NameForm()
+    if form.validate_on_submit():
+        session['name'] = form.name.data
+        return redirect(url_for('index'))
+    return render_template('index.html', form=form, name=session.et('name'))
 
 @app.route('/user/<name>')
 def user(name):
