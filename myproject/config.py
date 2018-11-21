@@ -27,12 +27,12 @@ class TestingConfig(Config):
     TESTING = True
     #SQL
 
-class ProductionConfig(Config):
+#class ProductionConfig(Config):
     #SQL
 
 config = {
     'development': DevelopmentConfig,
     'tetsing': TestingConfig,
-    'production': ProductionConfig,
+#    'production': ProductionConfig,
     'default': DevelopmentConfig
 }
