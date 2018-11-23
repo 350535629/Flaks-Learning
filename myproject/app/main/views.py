@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
 from flask import render_template, session, redirect, url_for
 
 from .import main
-from .forms import nameForm
+from .forms import NameForm
 from ..import db
 from ..models import User
 
@@ -15,5 +14,4 @@ def index():
         return redirect(url_for('.index'))
     return render_template('index.html',
                            form=form, name=session.get('name'),
-                           known=session.get('known', False),
-                           current_time=datetime.tcnow())
+                           known=session.get('known', False))

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div calss="page-header">
+  <h1>
+    {% if name != "ice1" %}
+    Hello, {{ name }}!!
+    {% elif name == "ice2" %}
+    Hello, Stranger!
+    {% else %}
+    Hello
+    {% endif %}
+  </h1>
+</div>
+{% endblock %}
